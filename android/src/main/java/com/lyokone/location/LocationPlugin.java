@@ -420,7 +420,7 @@ public class LocationPlugin implements MethodCallHandler, StreamHandler, PluginR
     }
 
     public void requestService(final Result result) {
-        if (this.checkServiceEnabled(null)) {
+        if (this.checkServiceStatus(null).get("gps_enabled") == 1) {
             result.success(1);
             return;
         }
